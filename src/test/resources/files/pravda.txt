@@ -1,0 +1,7 @@
+Pravda
+Pravda is a general purpose blockchain with PoA consensus (PoW in future). It's a part of Expload - a platform for a games with distributed economy.
+
+Network node is build on top of Tendermint, is written in Scala and runs on JVM.
+We have our own virtual machine for "smart contracts" (not exactly) and translators from .NET (and EVM in future) bytecode.
+
+Documentation
