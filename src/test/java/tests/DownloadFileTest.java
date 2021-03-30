@@ -1,15 +1,17 @@
+package tests;
+
 import com.codeborne.selenide.Configuration;
-import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
+import static utils.Files.readTextFromFile;
 
 public class DownloadFileTest {
 
@@ -19,7 +21,8 @@ public class DownloadFileTest {
 
         open("https://github.com/expload/pravda/blob/master/README.md");
         File downloadedFile = $("#raw-url").download();
-        String fileContent = FileUtils.readFileToString(downloadedFile, StandardCharsets.UTF_8);
+        String fileContent;
+        fileContent = readTextFromFile(downloadedFile);
         assertThat(fileContent, containsString("Pravda is a general purpose blockchain with PoA consensus"));
 
     }
